@@ -3,7 +3,7 @@
 # Uses the signed-in rzv profile (RZV_PROFILE, default: the active one) and
 # needs Orca (for `orca vm recipe doctor`), git, ssh and python3.
 #
-#   RZV_PROFILE=shared scripts/20-shared-e2e.sh
+#   RZV_PROFILE=<profile> scripts/20-shared-e2e.sh
 #
 # It creates at most one sandbox at a time and deletes everything it made,
 # including after a failure. Evidence goes to $E2E_EVIDENCE (default: a temp
@@ -63,16 +63,17 @@ git -C "$repo" -c user.name=E2E -c user.email=e2e@example.com commit -q -m "read
 remote="https://e2e-user:fake-token-1234@example.com/acme/fixture.git"
 git -C "$repo" remote add origin "$remote"
 commit="$(git -C "$repo" rev-parse HEAD)"
-cat > "$repo/orca.yaml" <<YAML
-environmentRecipes:
-  - id: runzivo-e2e
-    name: Runzivo e2e
-    checkoutMode: provisioned-root
-    create: '$rzv orca create --size $size${lifetime:+ --lifetime $lifetime}'
-    suspend: '$rzv orca suspend'
-    resume: '$rzv orca resume'
-    destroy: '$rzv orca destroy'
-YAML
+# Orca's doctor runs the shipped recipe commands verbatim, with RZV_BIN
+# pointing at the rzv under test.
+python3 -I - "$(dirname "$0")/../recipes/runzivo-$size.json" "$rzv" "$repo/orca.yaml" <<'PY'
+import json, sys
+recipe, rzv, out = json.load(open(sys.argv[1])), sys.argv[2], sys.argv[3]
+pre = "RZV_BIN='%s'; " % rzv
+lines = ["environmentRecipes:", "  - id: runzivo-e2e", "    name: Runzivo e2e", "    checkoutMode: provisioned-root"]
+for step in ("create", "suspend", "resume", "destroy"):
+    lines.append("    %s: %s" % (step, json.dumps(pre + recipe[step])))
+open(out, "w").write("\n".join(lines) + "\n")
+PY
 
 log "1. Orca doctor (static)"
 orca vm recipe doctor runzivo-e2e --repo-path "$repo" --json > "$evidence/doctor.json" || true
