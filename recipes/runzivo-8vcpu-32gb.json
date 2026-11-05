@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "runzivo-8vcpu-32gb",
+  "name": "Runzivo sandbox, 8 vCPU, 32 GB",
+  "description": "A Runzivo Firecracker microVM for this workspace: 8 vCPU, 32 GB, 4x equivalent minutes while running. Lifetime 8h by default (rzv orca defaults --lifetime 12h|24h); suspending stops the charge, deleting removes the VM and its files.",
+  "checkoutMode": "provisioned-root",
+  "create": "rzv=\"${RZV_BIN:-$(command -v rzv 2>/dev/null || true)}\"; [ -n \"$rzv\" ] || rzv=\"$HOME/.local/bin/rzv\"; [ -x \"$rzv\" ] || { echo \"Runzivo: install the rzv CLI first: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; \"$rzv\" help orca >/dev/null 2>&1 || { echo \"Runzivo: this rzv has no orca commands. Update it: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; exec \"$rzv\" orca create --size 8vcpu-32gb",
+  "suspend": "rzv=\"${RZV_BIN:-$(command -v rzv 2>/dev/null || true)}\"; [ -n \"$rzv\" ] || rzv=\"$HOME/.local/bin/rzv\"; [ -x \"$rzv\" ] || { echo \"Runzivo: install the rzv CLI first: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; \"$rzv\" help orca >/dev/null 2>&1 || { echo \"Runzivo: this rzv has no orca commands. Update it: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; exec \"$rzv\" orca suspend",
+  "resume": "rzv=\"${RZV_BIN:-$(command -v rzv 2>/dev/null || true)}\"; [ -n \"$rzv\" ] || rzv=\"$HOME/.local/bin/rzv\"; [ -x \"$rzv\" ] || { echo \"Runzivo: install the rzv CLI first: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; \"$rzv\" help orca >/dev/null 2>&1 || { echo \"Runzivo: this rzv has no orca commands. Update it: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; exec \"$rzv\" orca resume",
+  "destroy": "rzv=\"${RZV_BIN:-$(command -v rzv 2>/dev/null || true)}\"; [ -n \"$rzv\" ] || rzv=\"$HOME/.local/bin/rzv\"; [ -x \"$rzv\" ] || { echo \"Runzivo: install the rzv CLI first: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; \"$rzv\" help orca >/dev/null 2>&1 || { echo \"Runzivo: this rzv has no orca commands. Update it: curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh\" >&2; exit 127; }; exec \"$rzv\" orca destroy"
+}

@@ -1,0 +1,27 @@
+{
+  "manifestVersion": 2,
+  "execution": "declarative",
+  "id": "runzivo-sandboxes",
+  "name": "Runzivo Sandboxes",
+  "version": "0.1.0",
+  "description": "Run each Orca workspace in its own Runzivo Firecracker microVM, reached over SSH with short-lived certificates. Billed in equivalent minutes from your Runzivo workspace credits.",
+  "license": "LicenseRef-Runzivo",
+  "homepage": "https://runzivo.dev",
+  "repository": "https://github.com/Runzivo/rzv-orca-plugin",
+  "author": {
+    "name": "Runzivo",
+    "url": "https://runzivo.dev"
+  },
+  "icon": "assets/icon.png",
+  "engines": {
+    "orca": ">=1.4.246"
+  },
+  "contributes": {
+    "vmRecipes": [
+      { "path": "recipes/runzivo-2vcpu-8gb.json" },
+      { "path": "recipes/runzivo-4vcpu-16gb.json" },
+      { "path": "recipes/runzivo-8vcpu-32gb.json" },
+      { "path": "recipes/runzivo-16vcpu-64gb.json" }
+    ]
+  }
+}
