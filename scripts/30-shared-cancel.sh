@@ -29,7 +29,7 @@ suffix="$(printf '%s' "${instance#orca-}" | tr -cd 'a-z0-9' | cut -c1-8)"
 cleanup() {
   status=$?
   while read -r id _; do
-    [ -n "$id" ] && "$rzv" sandboxes delete "$id" --json >/dev/null 2>&1 || true
+    if [ -n "$id" ]; then "$rzv" sandboxes delete "$id" --json >/dev/null 2>&1 || true; fi
   done < <(find_ids "$suffix" 2>/dev/null || true)
   rm -rf "$repo"
   if [ "$status" -eq 0 ]; then log "PASS"; else log "exit $status"; fi
