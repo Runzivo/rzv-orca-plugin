@@ -51,3 +51,5 @@ A sandbox lives 8, 12 or 24 hours from its first run, never longer, even while a
 | [Releasing](docs/releasing.md)                 | Versions, tags and the Orca directory           |
 
 The commands the recipes run are documented in the CLI: [Orca workspaces](https://github.com/Runzivo/rzv-cli/blob/main/docs/orca.md).
+
+The plugin is MIT licensed ([LICENSE](LICENSE)). The `rzv` CLI and the Runzivo service keep their own licenses.

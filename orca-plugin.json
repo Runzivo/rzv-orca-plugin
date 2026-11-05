@@ -5,7 +5,7 @@
   "name": "Runzivo Sandboxes",
   "version": "0.1.0",
   "description": "Run each Orca workspace in its own Runzivo Firecracker microVM, reached over SSH with short-lived certificates. Billed in equivalent minutes from your Runzivo workspace credits.",
-  "license": "LicenseRef-Runzivo",
+  "license": "MIT",
   "homepage": "https://runzivo.dev",
   "repository": "https://github.com/Runzivo/rzv-orca-plugin",
   "author": {
