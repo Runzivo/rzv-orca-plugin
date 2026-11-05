@@ -28,6 +28,8 @@ The `rzv orca` commands have their own tests in the CLI repository (fake Core se
 RZV_PROFILE=<profile> scripts/20-shared-e2e.sh
 ```
 
-It needs a free sandbox slot, runs about ten minutes, and deletes what it made even when it fails. Evidence (logs, results, no credentials) is written to `$E2E_EVIDENCE` or a printed temporary directory. Set `E2E_SIZE` and `E2E_LIFETIME` to test other choices.
+`scripts/30-shared-cancel.sh` then cancels a create the way Orca does (SIGTERM, SIGKILL after 5 seconds) once its sandbox exists, and checks the sandbox is deleted and nothing is printed on stdout.
+
+Both need a free sandbox slot, take about ten minutes together, and delete what they made even when they fail. Evidence (logs, results, no credentials) is written to `$E2E_EVIDENCE` or a printed temporary directory. Set `E2E_SIZE` and `E2E_LIFETIME` to test other choices.
 
 Back to the [README](../README.md).
