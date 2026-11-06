@@ -21,5 +21,10 @@ jobs:
         run: for f in orca-plugin.json recipes/*.json; do python3 -I -m json.tool "$f" >/dev/null; done
       - name: Shell scripts
         run: |
-          command -v shellcheck >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck; }
+          # Pinned release with its SHA-256, so CI does not depend on the Ubuntu package mirror.
+          if ! command -v shellcheck >/dev/null; then
+            curl -fsSL -o "$RUNNER_TEMP/sc.tar.xz" https://github.com/koalaman/shellcheck/releases/download/v0.10.0/shellcheck-v0.10.0.linux.x86_64.tar.xz
+            echo "6c881ab0698e4e6ea235245f22832860544f17ba386442fe7e9d629f8cbedf87  $RUNNER_TEMP/sc.tar.xz" | sha256sum -c -
+            tar -xJf "$RUNNER_TEMP/sc.tar.xz" -C "$RUNNER_TEMP" && sudo install -m 0755 "$RUNNER_TEMP/shellcheck-v0.10.0/shellcheck" /usr/local/bin/shellcheck
+          fi
           shellcheck scripts/*.sh
