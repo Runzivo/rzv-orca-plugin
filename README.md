@@ -2,11 +2,13 @@
 
 Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://runzivo.dev) sandbox: an isolated Firecracker microVM that Orca reaches over standard SSH. Run Claude Code, Codex or any other tool inside it with your own accounts. Compute is charged in equivalent minutes from your Runzivo workspace credits; there is no separate Orca plan or payment.
 
+Start with the website's [Agent Sandboxes overview](https://runzivo.dev/sandboxes/), [CLI setup](https://runzivo.dev/docs/cli/) and [sign-in guide](https://runzivo.dev/docs/sign-in/). This repository covers the plugin's setup, recipes and troubleshooting. The [Orca plugin listing](https://www.onorca.dev/plugins/runzivo/rzv-orca-plugin) shows the published version.
+
 ## Requirements
 
 - Orca 1.4.246 or later on macOS or Linux, with OpenSSH and Git, and **Settings > Experimental > Cloud VM** turned on
 - A Runzivo account and a workspace with credit
-- The `rzv` CLI 0.24.0 or later (it keeps you signed in for up to 30 days):
+- The `rzv` CLI 0.24.0 or later (sign-ins renew automatically until 14 days without use or 30 days after sign-in, whichever comes first):
 
   ```sh
   curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh
@@ -28,7 +30,7 @@ Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://r
    ```
 
 3. In Orca, turn on **Settings > Experimental > Cloud VM**, then open **Settings > Plugins > Add plugin > From a Git URL** and paste
-   `https://github.com/runzivo/rzv-orca-plugin#v0.1.0`. Review the access it asks for (four VM recipes, no code) and enable it.
+   `https://github.com/Runzivo/rzv-orca-plugin#v0.1.1`. Review the access it asks for (four VM recipes, no code) and enable it.
 
 ## Use
 
@@ -51,5 +53,7 @@ A sandbox lives 8, 12 or 24 hours from its first run, never longer, even while a
 | [Releasing](docs/releasing.md)                 | Versions, tags and the Orca directory           |
 
 The commands the recipes run are documented in the CLI: [Orca workspaces](https://github.com/Runzivo/rzv-cli/blob/main/docs/orca.md).
+
+Suggest improvements and vote on ideas through the [public roadmap](https://runzivo.dev/roadmap/).
 
 The plugin is MIT licensed ([LICENSE](LICENSE)). The `rzv` CLI and the Runzivo service keep their own licenses.
