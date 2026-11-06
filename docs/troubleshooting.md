@@ -6,7 +6,7 @@ Orca shows each step's output when a recipe fails. The lines that start with `rz
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `install the rzv CLI first`                     | Install `rzv` (see the README). Orca looks on `PATH`, then `~/.local/bin/rzv`.            |
 | `this rzv has no orca commands`                 | Update `rzv` with the installer.                                                          |
-| `Your sign-in has expired`                      | Run `rzv login`.                                                                          |
+| `Your sign-in has ended`                        | Run `rzv login`. Sessions renew on their own for 14 days of use, up to 30 days.            |
 | `is not on offer here now`                      | Pick another size, or another lifetime with `rzv orca defaults --lifetime`.               |
 | `sandbox_limit_reached`                         | The workspace runs its maximum. Put another Orca workspace to sleep or delete one.        |
 | `credit_exhausted`                              | Add credit to the Runzivo workspace.                                                      |
