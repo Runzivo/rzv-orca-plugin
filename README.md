@@ -6,7 +6,7 @@ Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://r
 
 - Orca 1.4.246 or later on macOS or Linux, with OpenSSH and Git
 - A Runzivo account and a workspace with credit
-- The `rzv` CLI 0.23.0 or later:
+- The `rzv` CLI 0.24.0 or later (it keeps you signed in for up to 30 days):
 
   ```sh
   curl -fsSL https://runzivo.dev/downloads/rzv/install.sh | sh
