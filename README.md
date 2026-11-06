@@ -4,7 +4,7 @@ Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://r
 
 ## Requirements
 
-- Orca 1.4.246 or later on macOS or Linux, with OpenSSH and Git
+- Orca 1.4.246 or later on macOS or Linux, with OpenSSH and Git, and **Settings > Experimental > Cloud VM** turned on
 - A Runzivo account and a workspace with credit
 - The `rzv` CLI 0.24.0 or later (it keeps you signed in for up to 30 days):
 
@@ -27,8 +27,8 @@ Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://r
    rzv orca defaults --disk-gib 40 --lifetime 24h
    ```
 
-3. In Orca, open **Settings > Plugins > Install from git URL** and paste
-   `https://github.com/Runzivo/rzv-orca-plugin.git`.
+3. In Orca, turn on **Settings > Experimental > Cloud VM**, then open **Settings > Plugins > Add plugin > From a Git URL** and paste
+   `https://github.com/runzivo/rzv-orca-plugin#v0.1.0`. Review the access it asks for (four VM recipes, no code) and enable it.
 
 ## Use
 
