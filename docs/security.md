@@ -16,7 +16,9 @@ Pushing from the sandbox needs credentials you set up inside it, such as `gh aut
 
 Run Claude Code, Codex or other tools inside the sandbox and sign in to them there with your own accounts. Their credentials live in the sandbox and are deleted with it. Runzivo bills only the compute.
 
-Sleep keeps the sandbox's whole disk: your checkout in `/workspace`, your home directory with tool sign-ins and settings, and packages you installed. Running processes end. A sign-in you leave in the sandbox stays until you sign out, the sandbox expires or you delete it, so sign out first if you don't want it kept. Tools save sign-in files readable only by your sandbox user (mode 600), but while the sandbox runs, anyone with `sandboxes:write` in the Runzivo workspace can open a shell in it and read them.
+Sleep keeps the sandbox's whole disk: your checkout in `/workspace`, your home directory with tool sign-ins and settings, and packages you installed. Running processes end. A sign-in you leave in the sandbox stays until you sign out, the sandbox expires or you delete it, so sign out first if you don't want it kept.
+
+OpenCode and Codex save their sign-in files (`auth.json`) so only your sandbox user can read them (mode 600). Other tools are not verified. While the sandbox runs, anyone with `sandboxes:write` in the Runzivo workspace has shell access to it and can read those files.
 
 ## SSH
 
