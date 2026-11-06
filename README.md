@@ -34,7 +34,7 @@ Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://r
 
 Create a workspace and choose a **Runzivo sandbox** size under **Run on**. Orca creates the sandbox, copies in the commit you selected, connects over SSH and opens the workspace in `/workspace/<repo>`.
 
-- **Sleep** stops the sandbox. Files stay and compute is not charged.
+- **Sleep** stops the sandbox. Files under `/workspace` stay and compute is not charged; the rest of the VM (including tool sign-ins in your home directory) resets on wake.
 - **Wake** starts the same sandbox again. Nothing is duplicated.
 - **Delete** deletes the sandbox and every file in it. Push your work first.
 
