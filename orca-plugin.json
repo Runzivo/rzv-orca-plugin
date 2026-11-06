@@ -15,7 +15,7 @@
   "icon": "assets/icon.png",
   "cover": {
     "path": "assets/cover.webp",
-    "alt": "Runzivo Sandboxes for Orca. Every Orca workspace in its own cloud VM: one Firecracker microVM per workspace, standard SSH with short-lived certificates and strict host keys, Claude Code and Codex with your own accounts, billed from workspace credits with sleep stopping the charge. Sizes 2, 4, 8 and "
+    "alt": "Runzivo Sandboxes for Orca: every Orca workspace in its own Firecracker VM over SSH, 2 to 16 vCPU, 8 to 24 hour lifetime, billed in equivalent minutes"
   },
   "engines": {
     "orca": ">=1.4.246"
