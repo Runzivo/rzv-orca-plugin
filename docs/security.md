@@ -18,6 +18,8 @@ Run Claude Code, Codex or other tools inside the sandbox and sign in to them the
 
 Sleep keeps the sandbox's whole disk: your checkout in `/workspace`, your home directory with tool sign-ins and settings, and packages you installed. Running processes end. A sign-in you leave in the sandbox stays until you sign out, the sandbox expires or you delete it, so sign out first if you don't want it kept.
 
+OpenCode and Codex save their sign-in files (`auth.json`) so only your sandbox user can read them (mode 600). Other tools are not verified. While the sandbox runs, anyone with `sandboxes:write` in the Runzivo workspace has shell access to it and can read those files.
+
 ## SSH
 
 Orca connects with system OpenSSH through the config `rzv` writes in `~/.ssh/rzv/<sandbox>.conf` (included from `~/.ssh/config`):
