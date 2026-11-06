@@ -2,6 +2,10 @@
 
 Run each [Orca](https://www.onorca.dev) workspace in its own [Runzivo](https://runzivo.dev) sandbox: an isolated Firecracker microVM that Orca reaches over standard SSH. Run Claude Code, Codex or any other tool inside it with your own accounts. Compute is charged in equivalent minutes from your Runzivo workspace credits; there is no separate Orca plan or payment.
 
+[![CI](https://github.com/Runzivo/rzv-orca-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Runzivo/rzv-orca-plugin/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/tag/Runzivo/rzv-orca-plugin?sort=semver&label=release)](https://github.com/Runzivo/rzv-orca-plugin/tags) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE) [![Runzivo](https://img.shields.io/badge/Runzivo-sandboxes-0B0F14)](https://runzivo.dev/sandboxes/)
+
+<img src="assets/demo.gif" width="1200" alt="Animated demo of Runzivo sandboxes for Orca, in a terminal panel: adding https://github.com/Runzivo/rzv-orca-plugin#v0.1.1 in Orca, then rzv orca create starts a 2 vCPU 8 GB sandbox with the checkout in /workspace/fixture, SSH shows the branch and the claude and codex tools, rzv sandboxes get shows status, expiry, time left and credits, then suspend, resume and destroy. The sandbox ID shown is a placeholder." />
+
 Start with the website's [Agent Sandboxes overview](https://runzivo.dev/sandboxes/), [CLI setup](https://runzivo.dev/docs/cli/) and [sign-in guide](https://runzivo.dev/docs/sign-in/). This repository covers the plugin's setup, recipes and troubleshooting. The [Orca plugin listing](https://www.onorca.dev/plugins/runzivo/rzv-orca-plugin) shows the published version.
 
 ## Requirements
