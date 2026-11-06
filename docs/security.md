@@ -16,7 +16,7 @@ Pushing from the sandbox needs credentials you set up inside it, such as `gh aut
 
 Run Claude Code, Codex or other tools inside the sandbox and sign in to them there with your own accounts. Their credentials live in the sandbox and are deleted with it. Runzivo bills only the compute.
 
-Only `/workspace` survives sleep. Waking a sandbox resets everything else, including your home directory: sign in to those tools again after a wake, and expect Orca to reinstall its remote runtime (a slower first connection). Your checkout and anything else under `/workspace` stay until the sandbox expires or is deleted.
+Sleep keeps the sandbox's whole disk: your checkout in `/workspace`, your home directory with tool sign-ins and settings, and packages you installed. Running processes end. A sign-in you leave in the sandbox stays until you sign out, the sandbox expires or you delete it, so sign out first if you don't want it kept.
 
 ## SSH
 
