@@ -15,7 +15,7 @@
   "icon": "assets/icon.png",
   "cover": {
     "path": "assets/cover.webp",
-    "alt": "Runzivo Sandboxes for Orca: every Orca workspace in its own Firecracker VM over SSH, 2 to 16 vCPU, 8 to 24 hour lifetime, billed in equivalent minutes"
+    "alt": "Runzivo Sandboxes for Orca: every Orca workspace in its own Firecracker VM over SSH, 2 to 16 vCPU, 8, 12 or 24 hour lifetime, billed in equivalent minutes"
   },
   "engines": {
     "orca": ">=1.4.246"
