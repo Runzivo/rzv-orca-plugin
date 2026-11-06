@@ -94,6 +94,7 @@ print(sum(1 for s in json.load(sys.stdin)["sandboxes"] if s["status"] in ("pendi
   [ "$busy" = 0 ] && break
   sleep 15
 done
+[ "$busy" = 0 ] || log "   capacity still busy after 10 minutes; creating anyway"
 log "3. create"
 orca_env "$rzv" orca create --size "$size" ${lifetime:+--lifetime "$lifetime"} > "$work/result.json" 2> "$evidence/create.stderr"
 sandbox="$(field userData.sandboxId < "$work/result.json")"
