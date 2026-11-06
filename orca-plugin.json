@@ -3,7 +3,7 @@
   "execution": "declarative",
   "id": "runzivo-sandboxes",
   "name": "Runzivo Sandboxes",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run each Orca workspace in its own Runzivo Firecracker microVM, reached over SSH with short-lived certificates. Billed in equivalent minutes from your Runzivo workspace credits.",
   "license": "MIT",
   "homepage": "https://runzivo.dev",
@@ -13,15 +13,27 @@
     "url": "https://runzivo.dev"
   },
   "icon": "assets/icon.png",
+  "cover": {
+    "path": "assets/cover.webp",
+    "alt": "Runzivo Sandboxes for Orca. Every Orca workspace in its own cloud VM: one Firecracker microVM per workspace, standard SSH with short-lived certificates and strict host keys, Claude Code and Codex with your own accounts, billed from workspace credits with sleep stopping the charge. Sizes 2, 4, 8 and "
+  },
   "engines": {
     "orca": ">=1.4.246"
   },
   "contributes": {
     "vmRecipes": [
-      { "path": "recipes/runzivo-2vcpu-8gb.json" },
-      { "path": "recipes/runzivo-4vcpu-16gb.json" },
-      { "path": "recipes/runzivo-8vcpu-32gb.json" },
-      { "path": "recipes/runzivo-16vcpu-64gb.json" }
+      {
+        "path": "recipes/runzivo-2vcpu-8gb.json"
+      },
+      {
+        "path": "recipes/runzivo-4vcpu-16gb.json"
+      },
+      {
+        "path": "recipes/runzivo-8vcpu-32gb.json"
+      },
+      {
+        "path": "recipes/runzivo-16vcpu-64gb.json"
+      }
     ]
   }
 }

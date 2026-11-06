@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1, 2026-11-06
+
+### Changed
+
+- Directory listing: a 4K cover and the Runzivo O icon, built from the Runzivo brand kit.
+
 ## v0.1.0, 2026-11-06
 
 ### Added
