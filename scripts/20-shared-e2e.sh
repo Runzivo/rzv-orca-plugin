@@ -86,6 +86,15 @@ python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); d=d.get("result"
 left="$("$rzv" orca status --json | python3 -I -c 'import json,sys; print(sum(s["status"] in ("pending","starting","running","stopped") for s in json.load(sys.stdin)["sandboxes"]))')"
 [ "$left" = 0 ] || fail "doctor --provision left $left sandbox(es) behind"
 
+# doctor --provision deletes its sandbox asynchronously. On a small pool the
+# next create can see 409 sandbox_capacity_busy until that delete finishes.
+for _ in $(seq 1 40); do
+  busy="$("$rzv" orca status --json | python3 -I -c 'import json,sys
+print(sum(1 for s in json.load(sys.stdin)["sandboxes"] if s["status"] in ("pending","starting","stopping","deleting","cleanup_pending")))')"
+  [ "$busy" = 0 ] && break
+  sleep 15
+done
+[ "$busy" = 0 ] || log "   capacity still busy after 10 minutes; creating anyway"
 log "3. create"
 orca_env "$rzv" orca create --size "$size" ${lifetime:+--lifetime "$lifetime"} > "$work/result.json" 2> "$evidence/create.stderr"
 sandbox="$(field userData.sandboxId < "$work/result.json")"
